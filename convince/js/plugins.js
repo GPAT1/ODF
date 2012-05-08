@@ -1,7 +1,7 @@
 // ODF: CONVINCE - PLUGINS 
 // ========================
 
-// Last Updated: 03.05.2012 12:15 by Laurent LANG
+// Last Updated: 08.05.2012 15:06 by Laurent LANG
 
 
 // usage: log('inside coolFunc', this, arguments);
@@ -25,6 +25,9 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 // 4. Scrollorama
 // 5. Scrolldeck
 // 6. jQuery Waypoints 1.1.6
+// 7. ScrollToFixed
+// 8. jQuery Path
+// 9. 
 
 
 // ====================================================================================
@@ -1111,4 +1114,108 @@ jQuery.extend( jQuery.easing,
 
 // ====================================================================================
 
+// 7. ScrollToFixed
+
+// https://github.com/bigspotteddog/ScrollToFixed
+
+(function(a){a.ScrollToFixed=function(d,g){var j=this;j.$el=a(d);j.el=d;j.$el.data("ScrollToFixed",j);var c=false;var y=j.$el;var z;var w=0;var m=0;var h=-1;var e=-1;var o=null;var t;function p(){i();e=-1;w=y.offset().top;m=y.offset().left+(y.offset().left-y.position().left);if(h==-1){h=m}z=y.css("position");c=true;if(j.options.bottom!=-1){r()}}function l(){return z==="fixed"}function s(){return z==="absolute"}function f(){return !(l()||s())}function r(){if(!l()){o.css({display:y.css("display"),width:y.outerWidth(true),height:y.outerHeight(true),"float":y.css("float")});y.css({width:y.width(),position:"fixed",top:j.options.bottom==-1?n():"",bottom:j.options.bottom==-1?"":j.options.bottom});z="fixed"}}function b(){y.css({width:y.width(),position:"absolute",top:j.options.limit,left:m});z="absolute"}function i(){if(!f()){e=-1;o.css("display","none");y.css({width:"",position:"",left:"",top:""});z=null}}function q(A){if(A!=e){y.css("left",m-A);e=A}}function n(){return j.options.marginTop}function u(){var B=c;if(!c){p()}var A=a(window).scrollLeft();var C=a(window).scrollTop();if(j.options.bottom==-1){if(j.options.limit>0&&C>=j.options.limit-n()){if(!s()||!B){k();y.trigger("preAbsolute");b();y.trigger("unfixed")}}else{if(C>=w-n()){if(!l()||!B){k();y.trigger("preFixed");r();e=-1;y.trigger("fixed")}q(A)}else{if(!f()||!B){k();y.trigger("preUnfixed");i();y.trigger("unfixed")}}}}else{if(j.options.limit>0){if(C+a(window).height()-y.outerHeight(true)>=j.options.limit-n()){if(l()){k();y.trigger("preUnfixed");i();y.trigger("unfixed")}}else{if(!l()){k();y.trigger("preFixed");r()}q(A);y.trigger("fixed")}}else{q(A)}}}function k(){var A=y.css("position");if(A=="absolute"){y.trigger("postAbsolute")}else{if(A=="fixed"){y.trigger("postFixed")}else{y.trigger("postUnfixed")}}}var v=function(A){c=false;u()};var x=function(A){u()};j.init=function(){j.options=a.extend({},a.ScrollToFixed.defaultOptions,g);if(navigator.platform==="iPad"||navigator.platform==="iPhone"||navigator.platform==="iPod"){if(!navigator.userAgent.match(/OS 5_.*\ like Mac OS X/i)){return}}j.$el.css("z-index",j.options.zIndex);o=a("<div />");z=y.css("position");if(f()){j.$el.after(o)}a(window).bind("resize.ScrollToFixed",v);a(window).bind("scroll.ScrollToFixed",x);if(j.options.preFixed){y.bind("preFixed.ScrollToFixed",j.options.preFixed)}if(j.options.postFixed){y.bind("postFixed.ScrollToFixed",j.options.postFixed)}if(j.options.preUnfixed){y.bind("preUnfixed.ScrollToFixed",j.options.preUnfixed)}if(j.options.postUnfixed){y.bind("postUnfixed.ScrollToFixed",j.options.postUnfixed)}if(j.options.preAbsolute){y.bind("preAbsolute.ScrollToFixed",j.options.preAbsolute)}if(j.options.postAbsolute){y.bind("postAbsolute.ScrollToFixed",j.options.postAbsolute)}if(j.options.fixed){y.bind("fixed.ScrollToFixed",j.options.fixed)}if(j.options.unfixed){y.bind("unfixed.ScrollToFixed",j.options.unfixed)}if(j.options.spacerClass){o.addClass(j.options.spacerClass)}y.bind("resize",function(){o.height(y.height())});y.bind("scroll.ScrollToFixed",function(){i();u()});y.bind("remove.ScrollToFixed",function(){i();a(window).unbind("resize",v);a(window).unbind("scroll",x);y.unbind(".ScrollToFixed")});if(j.options.bottom!=-1){if(!l()){k();y.trigger("preFixed.ScrollToFixed");r()}}};j.init()};a.ScrollToFixed.defaultOptions={marginTop:0,limit:0,bottom:-1,zIndex:1000};a.fn.scrollToFixed=function(b){return this.each(function(){(new a.ScrollToFixed(this,b))})}})(jQuery);
+
+// ====================================================================================
+
+// 8. jQuery Path
+
+// https://github.com/weepy/jquery.path
+
+(function($){
+
+  $.path = {}
+
+
+  var V = {
+    rotate: function(p, degrees) {
+      var radians = degrees * 3.141592654 / 180
+      var c = Math.cos(radians), s = Math.sin(radians)
+      return [c*p[0] - s*p[1], s*p[0] + c*p[1] ]
+    },
+    scale: function(p, n) {
+      return [n*p[0], n*p[1]]
+    },
+    add: function(a, b) {
+      return [a[0]+b[0], a[1]+b[1]]
+    },
+    minus: function(a, b) {
+      return [a[0]-b[0], a[1]-b[1]]
+    }
+  }
+   
+   $.path.bezier = function( params ) { 
+     	params.start = $.extend({angle: 0, length: 0.3333}, params.start )
+     	params.end   = $.extend({angle: 0, length: 0.3333}, params.end )
+
+     this.p1 = [params.start.x, params.start.y];
+     this.p4 = [params.end.x, params.end.y];
+     
+     var v14 = V.minus(this.p4, this.p1)
+     var v12 = V.scale(v14, params.start.length)
+     v12 = V.rotate(v12, params.start.angle)
+     this.p2 = V.add(this.p1, v12)
+      
+     var v41 = V.scale(v14, -1)
+     var v43 = V.scale(v41, params.end.length)     
+     v43 = V.rotate(v43, params.end.angle)
+     this.p3 = V.add(this.p4, v43)
+
+     this.f1 = function(t) { return (t*t*t); }
+     this.f2 = function(t) { return (3*t*t*(1-t)); } 
+     this.f3 = function(t) { return (3*t*(1-t)*(1-t)); }
+     this.f4 = function(t) { return ((1-t)*(1-t)*(1-t)); }
+
+     /* p from 0 to 1 */
+     this.css = function(p) {
+       var f1 = this.f1(p), f2 = this.f2(p), f3 = this.f3(p), f4=this.f4(p)
+       var x = this.p1[0]*f1 + this.p2[0]*f2 +this.p3[0]*f3 + this.p4[0]*f4;
+       var y = this.p1[1]*f1 + this.p2[1]*f2 +this.p3[1]*f3 + this.p4[1]*f4;
+       return {top: y + "px", left: x + "px"}
+     }
+   }
+
+   $.path.arc = function(params) {
+     for(var i in params)
+       this[i] = params[i]
+
+     this.dir = this.dir || 1
+
+     while(this.start > this.end && this.dir > 0)
+       this.start -= 360
+
+     while(this.start < this.end && this.dir < 0)
+       this.start += 360
+
+
+     this.css = function(p) {
+       var a = this.start * (p ) + this.end * (1-(p ))  
+       a = a * 3.1415927 / 180 // to radians
+
+       var x = Math.sin(a) * this.radius + this.center[0]
+       var y = Math.cos(a) * this.radius + this.center[1]
+       return {top: y + "px", left: x + "px"}
+     } 
+
+   };
+   
+       
+  $.fx.step.path = function(fx){
+    var css = fx.end.css(1 - fx.pos)
+    for(var i in css) 
+      fx.elem.style[i] = css[i];
+  }
+})(jQuery);
+
+// ====================================================================================
+
+// 9. 
+
+
+
+// ====================================================================================
 

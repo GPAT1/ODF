@@ -1,9 +1,69 @@
 /* ODF: CONVINCE - MAIN STYLESHEET 
 =================================== */
 
-/* Last Updated: 03.05.2012 10:50 by Laurent LANG */
+/* Last Updated: 08.05.2012 18:20 by Laurent LANG */
 
 
-/* Headline
------------- */
+/* Colors
+----------
+
+Bright green: #66CC00
+Dark green: #55AF03
+Orange: #F65F00
+Blue: #0081A3
+Text color: #444
+Shadow color: #888
+
+
+/* General
+---------- */
+
+.w-full { width: 100%; }
+.w-960 { width: 960px; margin: 0 auto; position: relative; }
+#wrapper { position: absolute; top: 88px; left: 0; width: 100%; }
+
+
+/* Header
+---------- */
+
+#headerbg { height: 60px; background-color: #66CC00; }
+header { height: 26px; padding: 17px 0; }
+header img { width: 286px; height: 26px; }
+
+
+/* Navigation
+------------- */
+
+#navbg { height: 28px; background-color: #55AF03; }
+#mainnav { height: inherit; font-family: Helvetica, Arial, sans-serif; font-size: 12px; font-weight: bold; color: #FFF; }
+#mainnav ul li { float: left; list-style: none; }
+#mainnav ul li.active, #mainnav ul li:hover { background-color: #66CC00; }
+#mainnav ul li a { color: #FFF; text-decoration: none; line-height: 28px; padding: 0  12px; }
+#mainnav ul li a:hover, a:active { color: #FFF; text-decoration: none; }
+
+
+/* Intro
+--------- */
+
+#introbg, #subnavbg { height: auto; background-color: #FFF; }
+#intro { padding: 15px 0 0 0; font-family: Helvetica, Arial, sans-serif; color: #444; text-align: center; }
+#intro h1 { margin: 0 auto; margin-bottom: 12px; font-size: 24px; font-weight: bold; }
+#intro p { margin: 0; font-size: 16px; }
+
+
+/* Subnav
+---------- */
+
+#subnavbg { z-index: 5; border-bottom: 4px solid #ddd; }
+#subnav { margin: 0 auto; height: auto; padding: 20px 0; font-family: Helvetica, Arial, sans-serif; color: #444; text-align: center; }
+#subnav ul li { float: left; list-style: none; width: 288px; height: auto; padding: 6px 6px; margin-right: 30px; font-size: 13px; line-height: 16px; font-weight: bold; }
+#subnav ul li:last-child { margin-right: 0px; }
+#subnav ul li a { width: inherit; height: auto; display: block; color: #FFF; text-decoration: none; font-size: 18px; padding: 6px 0; margin-bottom: 6px; display: block; background-color: #0081A3; -webkit-box-shadow: 2px 2px 4px #888; -moz-box-shadow:2px 2px 4px #888; box-shadow:2px 2px 4px #888; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; text-shadow: 0px -1px 0px #666; }
+#subnav ul li a:hover, a:active { color: #FFF; text-decoration: none; background-color: #0081A3; }
+
+
+/* Main
+--------- */
+
+#main { height: 800px; }
 

@@ -22,23 +22,66 @@
 
 
 <body>
-
-	<!--[if lte IE 7]><p class="chromeframe">Ihr Browser ist veraltet und nicht mit dieser Webseite kompatibel. Bitte <a href="http://browsehappy.com/">laden Sie einen moderneren Browser herunter</a> oder <a href="http://www.google.com/chromeframe/?redirect=true">installieren Sie "Google Chrome Frame"</a>.</p><![endif]-->
   
-  <div id="wrapper">
+  <div id="header-wrapper">
   
-	  <header></header>
+	  <div id="headerbg" class="w-full">
+		  <header class="w-960">
+			  <a href="http://www.greenpeace.at"><img src="images/gp_at_logo.gif" alt="Greenpeace Österreich" title="Greenpeace Österreich" /></a>
+		  </header>
+	  </div><!-- /headerbg -->
 	  
-	  <nav></nav>
+	  <div id="navbg" class="w-full">
+	  	<nav id="mainnav" class="w-960">
+	  		<ul>
+	  			<li><a href="#">Home</a></li>
+	  			<li><a href="#">Spenden</a></li>
+	  			<li class="active"><a href="#">Überzeugen</a></li>
+	  			<li><a href="#">Hilfe</a></li>
+	  		</ul>
+	  		<div class="clearfix"></div>
+	  	</nav>
+	  </div><!-- /navbg -->
 	  
-	  <div id="main"></div>
-	  
-	  <footer></footer>
+  </div><!-- /header-wrapper -->
   
-  </div><!-- /wrapper -->
+	
+	
+	<div id="wrapper">
+    
+	  <div id="introbg" class="w-full">
+	  	<div id="intro" class="w-960">
+	  		<h1>Jetzt überzeugt mich mal!</h1>
+	  		<p>Sie sind sich noch unsicher, ob Sie für Greenpeace spenden wollen? Wir haben auf dieser Seite zahlreiche Argumente zusammen&shy;gestellt, die Sie überzeugen werden eine Spende zu tätigen. Sie können die ganze Seite durchscrollen oder gleich einen bestimmten Themenbereich auswählen. Wir sehen uns unten wieder!</p>
+	  	</div>
+	  </div><!-- /introbg -->
+	  
+	  <div id="subnavbg" class="w-full">
+  		<nav id="subnav" class="w-960">
+  			<ul>
+  				<li><a href="#section1">Warum?</a>Jetzt erklärt mir mal, warum ich für euch spenden sollte.</li>
+  				<li><a href="#section2">Online?</a>Warum Ihnen beim Online-Spenden nicht unwohl zumute sein muss.</li>
+  				<li><a href="#section3">Wie viel?</a>Was kostet es die Welt zu retten?</li>
+  			</ul>
+  			<div class="clearfix"></div>
+  		</nav>
+	  </div><!-- /subnavbg -->
 
+  	<div id="main" class="w-960">
+  		<section id="section1">
+  			<div id="block11" class="widget"></div>
+  			<div id="block12" class="widget"></div>
+  		</section>
+  	</div>
+  	
+  	
+  	<footer></footer>
+  
+  
+	</div><!-- /wrapper -->
 
-
+  
+	
   <!-- SCRIPTS -->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -46,7 +89,7 @@
   
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
-
+  
   <script>
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
