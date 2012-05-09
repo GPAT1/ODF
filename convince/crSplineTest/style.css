@@ -1,0 +1,50 @@
+body { margin: 0; padding: 0; }
+
+#wrapper { width: 960px; margin: 0 auto; position: relative; }
+
+
+.widget { position: absolute; }
+#section1 .widget { background-color: red; }
+#section2 .widget { background-color: blue; }
+#section3 .widget { background-color: green; }
+#block11 { width: 630px; height: 200px; right: 0; top: 20px; }
+#block12 { width: 630px; height: 200px; left: 0; top: 370px; }
+#block13 { width: 630px; height: 200px; right: 0; top: 720px; }
+#block14 { width: 630px; height: 200px; left: 0; top: 1070px; }
+
+#block21 { width: 630px; height: 200px; right: 0; top: 1420px; }
+#block22 { width: 630px; height: 200px; left: 0; top: 1770px; }
+#block23 { width: 630px; height: 200px; right: 0; top: 2120px; }
+#block24 { width: 630px; height: 200px; left: 0; top: 2470px; }
+
+#block31 { width: 630px; height: 200px; right: 0; top: 2820px; }
+#block32 { width: 630px; height: 200px; left: 0; top: 3170px; }
+#block33 { width: 630px; height: 200px; right: 0; top: 3520px; }
+#block34 { width: 630px; height: 200px; left: 0; top: 3870px; }
+
+.path-dot {
+	position: absolute;
+	z-index: 1;
+	width: 4px;
+	height: 4px;
+	font: 0px;
+	background-color: #dca3a3;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#icebear {
+	position: absolute;
+	top: 0;
+	left: 150px;
+	z-index: 5;
+	width: 150px;
+	height: 146px;
+	background: url('icebear.png') no-repeat;
+}
+
+
+* {
+	border: 0;
+	font-family: "Lucida Console", "Monaco", "Arial", "Verdana";
+}
