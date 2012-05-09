@@ -1,7 +1,7 @@
 /* ODF: CONVINCE - MAIN STYLESHEET 
 =================================== */
 
-/* Last Updated: 08.05.2012 18:20 by Laurent LANG */
+/* Last Updated: 09.05.2012 17:15 by Laurent LANG */
 
 
 /* Colors
@@ -11,6 +11,8 @@ Bright green: #66CC00
 Dark green: #55AF03
 Orange: #F65F00
 Blue: #0081A3
+Light blue: #D8EDF0
+Greyish blue: #BFCCD0
 Text color: #444
 Shadow color: #888
 
@@ -21,6 +23,7 @@ Shadow color: #888
 .w-full { width: 100%; }
 .w-960 { width: 960px; margin: 0 auto; position: relative; }
 #wrapper { position: absolute; top: 88px; left: 0; width: 100%; }
+body { background-color: #0081A3; }
 
 
 /* Header
@@ -45,7 +48,7 @@ header img { width: 286px; height: 26px; }
 /* Intro
 --------- */
 
-#introbg, #subnavbg { height: auto; background-color: #FFF; }
+#introbg, #subnavbg { z-index: 5; height: auto; background-color: #FFF; }
 #intro { padding: 15px 0 0 0; font-family: Helvetica, Arial, sans-serif; color: #444; text-align: center; }
 #intro h1 { margin: 0 auto; margin-bottom: 12px; font-size: 24px; font-weight: bold; }
 #intro p { margin: 0; font-size: 16px; }
@@ -54,16 +57,45 @@ header img { width: 286px; height: 26px; }
 /* Subnav
 ---------- */
 
-#subnavbg { z-index: 5; border-bottom: 4px solid #ddd; }
-#subnav { margin: 0 auto; height: auto; padding: 20px 0; font-family: Helvetica, Arial, sans-serif; color: #444; text-align: center; }
-#subnav ul li { float: left; list-style: none; width: 288px; height: auto; padding: 6px 6px; margin-right: 30px; font-size: 13px; line-height: 16px; font-weight: bold; }
+#subnav { margin: 0 auto; height: auto; padding: 20px 0 0 0; font-family: Helvetica, Arial, sans-serif; color: #444; text-align: center; }
+#subnav ul li { float: left; list-style: none; width: 288px; padding: 6px 6px; margin-right: 30px; font-size: 13px; line-height: 16px; font-weight: bold; }
 #subnav ul li:last-child { margin-right: 0px; }
-#subnav ul li a { width: inherit; height: auto; display: block; color: #FFF; text-decoration: none; font-size: 18px; padding: 6px 0; margin-bottom: 6px; display: block; background-color: #0081A3; -webkit-box-shadow: 2px 2px 4px #888; -moz-box-shadow:2px 2px 4px #888; box-shadow:2px 2px 4px #888; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; text-shadow: 0px -1px 0px #666; }
+#subnav ul li a { display: block; color: #FFF; text-decoration: none; font-size: 18px; padding: 6px 0; margin-bottom: 6px; display: block; background-color: #0081A3; -webkit-box-shadow: 2px 2px 4px #888; -moz-box-shadow:2px 2px 4px #888; box-shadow:2px 2px 4px #888; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; text-shadow: 0px -1px 0px #666; }
 #subnav ul li a:hover, a:active { color: #FFF; text-decoration: none; background-color: #0081A3; }
+
+
+/* Ice floe border
+------------------- */
+
+#icefloe-border { height: 116px; z-index: 5; background: transparent url('../images/subnavbg_bottom_icefloe.png') no-repeat bottom center; }
 
 
 /* Main
 --------- */
 
-#main { height: 800px; }
+#main { height: 800px; position: relative; margin-top: 20px; }
+
+/* Icebear */
+#icebear { position: absolute; top: 0; left: 80px; z-index: 4; width: 150px; height: 146px; background: transparent url('../images/icebear.png') no-repeat; cursor: pointer; }
+#icebear:hover { -webkit-transform: rotate(2deg); }
+
+/* Sections */
+#section1 .block, #section2 .block, #section3 .block { background: transparent url('../images/icefloe_blockbg.png') no-repeat; }
+
+/* Blocks */
+.block { position: absolute; }
+#block11 { width: 630px; height: 394px; right: 0; top: 0; }
+#block12 { width: 630px; height: 394px; left: 0; top: 600px; }
+#block13 { width: 630px; height: 394px; right: 0; top: 1200px; }
+#block14 { width: 630px; height: 394px; left: 0; top: 1800px; }
+
+#block21 { width: 630px; height: 394px; right: 0; top: 2400px; }
+#block22 { width: 630px; height: 394px; left: 0; top: 3000px; }
+#block23 { width: 630px; height: 394px; right: 0; top: 3600px; }
+#block24 { width: 630px; height: 394px; left: 0; top: 4200px; }
+
+#block31 { width: 630px; height: 394px; right: 0; top: 4800px; }
+#block32 { width: 630px; height: 394px; left: 0; top: 5400px; }
+#block33 { width: 630px; height: 394px; right: 0; top: 6000px; }
+#block34 { width: 630px; height: 394px; left: 0; top: 6600px; }
 
